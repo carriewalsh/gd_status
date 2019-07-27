@@ -1,12 +1,13 @@
 require "rails_helper"
 
 RSpec.describe "As a registered user", type: :feature do
+  before :each do
+    User.destroy_all
+    @user = User.create(name: "Test Tester", email: "email@example.com", password: "password", role: "admin", job_title: "manager")
+    visit '/login'
+  end
+
   describe "when I enter my correct credentials" do
-    before :each do
-      User.destroy_all
-      @user = User.create(name: "Test Tester", email: "email@example.com", password: "password", role: "admin", job_title: "manager")
-      visit '/login'
-    end
     it "logs me in" do
       fill_in "email", with: "email@example.com"
       fill_in "password", with: "test"
