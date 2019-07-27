@@ -1,5 +1,6 @@
 <div class="machine-container">
   <% @locations.each do |location| %>
+    <%= location.name %>
     <% location.machines.each do |machine| %>
     <%= machine.name %>
     <img src="<%= machine.logo %>" alt="" class="<%= machine.type %> <%= machine.status%>">

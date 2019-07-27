@@ -25,7 +25,7 @@ RSpec.describe "As a registered user", type: :feature do
       click_button "Log In"
 
       expect(current_path).to eq('/dashboard')
-      expect(page).to have_content("Successfully logged in")
+      expect(page).to have_content("Email/password combination incorrect")
 
     end
   end
