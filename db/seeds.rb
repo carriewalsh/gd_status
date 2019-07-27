@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-u1 = User.create(name: "Cameron Marks", email: "cameron.marks@greatdivide.com", password: "password", role: 22, job_title: "packaging analyst")
-u1 = User.create(name: "Jeff Martin", email: "jeff.martin@greatdivide.com", password: "password", role: 22, job_title: "packaging analyst")
-u1 = User.create(name: "Will Broeren", email: "will.broeren@greatdivide.com", password: "password", role: 22, job_title: "packaging analyst")
+u1 = User.create(name: "Cameron Marks", email: "cameron.marks@greatdivide.com", password: "password", role: 0, job_title: "packaging analyst")
+u1 = User.create(name: "Jeff Martin", email: "jeff.martin@greatdivide.com", password: "password", role: 1, job_title: "packaging analyst")
+u1 = User.create(name: "Will Broeren", email: "will.broeren@greatdivide.com", password: "password", role: 1, job_title: "packaging analyst")
 
 
 l1 = Location.create(name: "Arapahoe")
