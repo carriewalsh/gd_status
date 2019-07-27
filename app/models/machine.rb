@@ -1,5 +1,5 @@
 class Machine < ApplicationRecord
-  validates_presense_of :name, :status, :type
+  validates_presence_of :name, :status, :type
 
   belongs_to :location
 end

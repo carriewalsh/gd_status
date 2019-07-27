@@ -1,3 +1,3 @@
 class Beer < ApplicationRecord
-  validates_presense_of :name, :icon
+  validates_presence_of :name, :icon
 end
