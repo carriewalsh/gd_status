@@ -10,4 +10,26 @@ RSpec.describe Machine, type: :model do
   describe "relationships" do
     it { should belong_to :location }
   end
+
+  describe "instance methods" do
+    describe "current_beer_logo" do
+      it "returns the link for the current beer" do
+        l1 = Location.create(name: "Arapahoe")
+        b1= Beer.create(name: "yeti", icon: "https://greatdivide.com/wp-content/uploads/2016/06/Yeti_Imperial_Stout.png")
+        m1 = l1.machines.create(name: "bottle", status: 0, category: 0, beer_id: b1.id)
+
+        expect(m1.current_beer_logo).to eq(b1.icon)
+      end
+    end
+
+    describe "current_beer" do
+      it "returns the link for the current beer" do
+        l1 = Location.create(name: "Arapahoe")
+        b1= Beer.create(name: "yeti", icon: "https://greatdivide.com/wp-content/uploads/2016/06/Yeti_Imperial_Stout.png")
+        m1 = l1.machines.create(name: "bottle", status: 0, category: 0, beer_id: b1.id)
+
+        expect(m1.current_beer).to eq(b1.name.titleize)
+      end
+    end
+  end
 end

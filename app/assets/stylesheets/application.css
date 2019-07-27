@@ -1,15 +1,133 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  font-family: 'Lato', sans-serif;
+  background: #000911;
+  color: #FDF8DE;
+}
+
+nav {
+  display: flex;
+  height: 52px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.gd-logo {
+  height: 60px;
+}
+
+.nav-btn {
+  color: #17222a;
+  background: #FDF8DE;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  padding: 0px 20px;
+  margin: 5px;
+  margin-left: 98px;
+}
+
+.nav-btn:hover {
+  color: #FDF8DE;
+  background: #ee3123;
+}
+
+.dashboard-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.location-card {
+  display: flex;
+  flex-direction: column;
+  width: 47vw;
+  background: #17222a;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.machine-card {
+  display: flex;
+  margin: 10px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.location-name {
+  text-align: center;
+  font-size: 30px;
+  background-color: #313C44;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-top: 12px;
+  margin-top: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 2px;
+}
+
+.status-line {
+  margin: 2px;
+  margin-bottom: 10px;
+}
+
+.machine-logo {
+  width: 200px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+.current-beer-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.current-beer {
+  width: 125px;
+}
+
+.current-size {
+  height: 125px;
+}
+
+.oos {
+  color: #000;
+  background-color: #ea9999;
+}
+
+.oos:hover {
+  color: #ff0000;
+}
+
+.end-run {
+  color: #000;
+  background: #cccccc;
+}
+
+.start-run {
+  color: #000;
+  background: #b6d7a8;
+}
+
+.start-run:hover {
+  color: #38761d;
+}
+
+.machine-btn {
+  border: none;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+  width: 225px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin: 5px;
+}
+
+.machine-btn:hover {
+  transform: scale(1.05)
+}

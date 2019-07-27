@@ -1,8 +1,7 @@
 class MachinesController < ApplicationController
-  before_action :require_user!
+  # before_action :require_user!
 
   def index
-    binding.pry
-    @machines = Machine.all
+    @locations = Location.all
   end
 end
