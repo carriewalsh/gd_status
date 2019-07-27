@@ -14,11 +14,6 @@ u1 = User.create(name: "Will Broeren", email: "will.broeren@greatdivide.com", pa
 l1 = Location.create(name: "Arapahoe")
 l2 = Location.create(name: "Brighton")
 
-m1 = l1.machines.create(name: "bottle", status: 0, category: 0)
-m2 = l1.machines.create(name: "keg", status: 0, category: 2)
-m3 = l2.machines.create(name: "can", status: 0, category: 1)
-m4 = l2.machines.create(name: "keg", status: 0, category: 2)
-
 b1= Beer.create(name: "yeti", icon: "https://greatdivide.com/wp-content/uploads/2016/06/Yeti_Imperial_Stout.png")
 b2= Beer.create(name: "titan", icon: "https://greatdivide.com/wp-content/uploads/2016/06/Titan-IPA-Medallion-e1539979951623.png")
 b3= Beer.create(name: "hercules", icon: "https://greatdivide.com/wp-content/uploads/2016/06/Hercules_Double_IPA.png")
@@ -43,3 +38,9 @@ b21= Beer.create(name: "barrel aged yeti", icon: "https://greatdivide.com/wp-con
 b22= Beer.create(name: "wood werks 3", icon: "https://greatdivide.com/wp-content/uploads/2017/12/Woodwerks3-Medallion.png")
 b23= Beer.create(name: "wood werks 4", icon: "https://greatdivide.com/wp-content/uploads/2018/12/Wood-Werks-4-Medallion-e1545175875792.png")
 b24= Beer.create(name: "wood werks 5", icon: "https://greatdivide.com/wp-content/uploads/2019/06/Wood-Werks-5-Medallion.png")
+
+
+m1 = l1.machines.create(name: "bottle", status: 1, category: 0, beer_id: 1, size: '12_bottle')
+m2 = l1.machines.create(name: "keg", status: 1, category: 2, beer_id: 23)
+m3 = l2.machines.create(name: "can", status: 1, category: 1, beer_id: 14, size: '12_can')
+m4 = l2.machines.create(name: "keg", status: 1, category: 2, beer_id: 10)
