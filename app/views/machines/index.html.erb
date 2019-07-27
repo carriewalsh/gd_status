@@ -8,8 +8,11 @@
           <%= image_tag("green_#{machine.category}.jpg", class:"machine-logo") %>
           <div class="info-container">
             <h3>Status: <%= machine.status %></h3>
-            <div class="current-beer">
-              <%= image_tag("#{}") %>
+            <div class="current-beer-container">
+              <%= image_tag("#{machine.current_beer_logo}", class:"current-beer") %>
+              <% unless machine.category == 'keg' %>
+                <%= image_tag("#{machine.size}.jpg", class:"current-size") %>
+              <% end %>
             </div>
             <button type="button" class="end-run machine-btn" name="button">End Run</button>
             <button type="button" class="oos machine-btn" name="button">Flag as Out of Service</button>
