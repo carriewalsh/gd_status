@@ -41,6 +41,6 @@ b24= Beer.create(name: "wood werks 5", icon: "https://greatdivide.com/wp-content
 
 
 m1 = l1.machines.create(name: "bottle", status: 1, category: 0, beer_id: 1, size: '12_bottle')
-m2 = l1.machines.create(name: "keg", status: 1, category: 2, beer_id: 23)
+m2 = l1.machines.create(name: "keg", status: 0, category: 2, beer_id: 23)
 m3 = l2.machines.create(name: "can", status: 1, category: 1, beer_id: 14, size: '12_can')
-m4 = l2.machines.create(name: "keg", status: 1, category: 2, beer_id: 10)
+m4 = l2.machines.create(name: "keg", status: 2, category: 2, beer_id: 10)
