@@ -1,5 +1,7 @@
 body {
-
+  font-family: 'Lato', sans-serif;
+  background: #000911;
+  color: #FFF;
 }
 
 nav {
@@ -8,12 +10,17 @@ nav {
 
 .dashboard-container {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .location-card {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 47%;
+  background: #17222a;
+  border-radius: 20px;
 }
 
 .machine-card {
@@ -28,11 +35,25 @@ nav {
 }
 
 .location-name {
-  font-size: 24px;
+  text-align: center;
+  font-size: 30px;
+  background-color: #313C44;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-top: 12px;
+  margin-top: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 2px;
+}
+
+.status-line {
+  margin: 2px;
 }
 
 .machine-logo {
   width: 200px;
+  height: 250px;
+  border-radius: 10px;
 }
 
 .current-beer-container {
@@ -40,11 +61,11 @@ nav {
 }
 
 .current-beer {
-  width: 100px;
+  width: 125px;
 }
 
 .current-size {
-  height: 100px;
+  height: 125px;
 }
 
 .oos {
@@ -53,7 +74,7 @@ nav {
 }
 
 .end-run {
-  color: #999999;
+  color: #000;
   background: #cccccc;
 }
 
@@ -65,5 +86,12 @@ nav {
 .machine-btn {
   border: none;
   font-size: 20px;
+  font-family: 'Lato', sans-serif;
   cursor: pointer;
+  width: 225px;
+  margin: 5px;
+}
+
+.machine-btn:hover {
+  font-size: 22px;
 }
