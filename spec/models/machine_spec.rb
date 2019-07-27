@@ -4,7 +4,7 @@ RSpec.describe Machine, type: :model do
   describe "validations" do
     it { should validate_presence_of :name }
     it { should validate_presence_of :status }
-    it { should validate_presence_of :type }
+    it { should validate_presence_of :category }
   end
 
   describe "relationships" do

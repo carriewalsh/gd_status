@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   post "/register", to: "users#create"
 
+  get '/dashboard', to: "machines#index"
+
   resources :beer, only: [:create]
 
   resources :users, only: [:show, :create, :update]
 
-  resources :machines, only: [:index, :update]
+  resources :machines, only: [:update]
 end

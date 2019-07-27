@@ -15,9 +15,9 @@ l1 = Location.create(name: "Arapahoe")
 l2 = Location.create(name: "Brighton")
 
 m1 = l1.machines.create(name: "can", status: 0, type: 0)
-m1 = l1.machines.create(name: "bottle", status: 0, type: 1)
-m1 = l1.machines.create(name: "keg", status: 0, type: 2)
-m1 = l1.machines.create(name: "keg", status: 0, type: 2)
+m2 = l1.machines.create(name: "bottle", status: 0, type: 1)
+m3 = l1.machines.create(name: "keg", status: 0, type: 2)
+m4 = l1.machines.create(name: "keg", status: 0, type: 2)
 
 b1= Beer.create(name: "yeti", icon: "https://greatdivide.com/wp-content/uploads/2016/06/Yeti_Imperial_Stout.png")
 b2= Beer.create(name: "titan", icon: "https://greatdivide.com/wp-content/uploads/2016/06/Titan-IPA-Medallion-e1539979951623.png")
