@@ -2,9 +2,14 @@
   <% @locations.each do |location| %>
     <%= location.name %>
     <% location.machines.each do |machine| %>
-    <%= machine.name %>
-    <img src="<%= machine.logo %>" alt="" class="<%= machine.type %> <%= machine.status%>">
+      <%= machine.name %>
+      <% if machine.status == "running" %>
+        <%= image_tag("green_#{machine.category}.jpg", class:"machine-logo") %>
+      <% elsif machine.status == "out of service" %>
+        <%= image_tag("red_#{machine.category}.jpg", class:"machine-logo") %>
+      <% else %>
+      <%= image_tag("grey_#{machine.category}.jpg", class:"machine-logo") %>
+      <% end %>
     <% end %>
   <% end %>
-
 </div>
