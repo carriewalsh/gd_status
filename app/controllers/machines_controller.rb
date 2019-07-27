@@ -4,4 +4,8 @@ class MachinesController < ApplicationController
   def index
     @locations = Location.all
   end
+
+  def update
+
+  end
 end
