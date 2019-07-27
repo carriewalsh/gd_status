@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   post "/register", to: "users#create"
 
-  get '/profile', to: "machines#index"
+  get '/dashboard', to: "machines#index"
 
   resources :beer, only: [:create]
 
