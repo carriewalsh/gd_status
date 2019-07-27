@@ -6,13 +6,25 @@ nav {
 
 }
 
-.machine-container {
+.dashboard-container {
   display: flex;
 }
 
 .location-card {
   display: flex;
   flex-direction: column;
+  width: 50%;
+}
+
+.machine-card {
+  display: flex;
+  margin: 10px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 }
 
 .location-name {
@@ -21,4 +33,30 @@ nav {
 
 .machine-logo {
   width: 200px;
+}
+
+.current-beer {
+  
+}
+
+
+.oos {
+  color: #cc0000;
+  background-color: #ea9999;
+}
+
+.end-run {
+  color: #999999;
+  background: #cccccc;
+}
+
+.start-run {
+  color: #38761d;
+  background: #b6d7a8;
+}
+
+.machine-btn {
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
