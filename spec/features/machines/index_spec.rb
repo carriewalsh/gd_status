@@ -9,10 +9,10 @@ RSpec.describe "As a logged in user" do
       l1 = Location.create(name: "Arapahoe")
       l2 = Location.create(name: "Brighton")
 
-      m1 = l1.machines.create(name: "can", status: 0, type: 0)
-      m1 = l1.machines.create(name: "bottle", status: 0, type: 1)
-      m1 = l1.machines.create(name: "keg", status: 0, type: 2)
-      m1 = l1.machines.create(name: "keg", status: 0, type: 2)
+      m1 = l1.machines.create(name: "can", status: 0, category: 0)
+      m1 = l1.machines.create(name: "bottle", status: 0, category: 1)
+      m1 = l1.machines.create(name: "keg", status: 0, category: 2)
+      m1 = l1.machines.create(name: "keg", status: 0, category: 2)
 
       visit dashboard_path
     end
