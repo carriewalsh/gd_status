@@ -5,4 +5,8 @@ class Machine < ApplicationRecord
 
   enum status: ['standby','running','out of service']
   enum category: ['bottle','can','keg']
+
+  def current_beer_logo
+    Beer.find_by(id: beer_id).icon
+  end
 end
