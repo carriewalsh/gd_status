@@ -28,7 +28,7 @@ RSpec.describe Machine, type: :model do
         b1= Beer.create(name: "yeti", icon: "https://greatdivide.com/wp-content/uploads/2016/06/Yeti_Imperial_Stout.png")
         m1 = l1.machines.create(name: "bottle", status: 0, category: 0, beer_id: b1.id)
 
-        expect(m1.current_beer).to eq(b1.name.capitalize)
+        expect(m1.current_beer).to eq(b1.name.titleize)
       end
     end
   end

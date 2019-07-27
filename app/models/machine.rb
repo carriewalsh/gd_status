@@ -12,6 +12,6 @@ class Machine < ApplicationRecord
   end
 
   def current_beer
-    Beer.find_by(id: beer_id).name.capitalize
+    Beer.find_by(id: beer_id).name.titleize
   end
 end
