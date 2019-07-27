@@ -20,7 +20,6 @@ RSpec.describe "As a logged in user" do
       expect(page).to_not have_content("Status: Running")
       expect(page).to_not have_button("Start Run")
       expect(page).to_not have_button("End Run")
-      expect(m1.status).to eq("out of service")
     end
   end
 end

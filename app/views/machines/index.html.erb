@@ -14,7 +14,11 @@
                 <%= image_tag("#{machine.size}.jpg", class:"current-size") %>
               <% end %>
             </div>
-            <button type="button" class="end-run machine-btn" name="button">End Run</button>
+            <%= form_for machine, controller: :machines, action: :update do |f| %>
+              <%= f.hidden_field :id, value: machine.id %>
+              <%= f.hidden_field :status, value: "standby" %>
+              <%= f.submit "End Run", method: :update, class:'end-run machine-btn' %>
+            <% end %>
           </div>
         <% elsif machine.status == "out of service" %>
           <%= image_tag("red_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
