@@ -5,6 +5,8 @@ class CreateMachines < ActiveRecord::Migration[5.2]
       t.integer :status
       t.integer :type
       t.references :location, foreign_key: true
+
+      t.timestamps
     end
   end
 end
