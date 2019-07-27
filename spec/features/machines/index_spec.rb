@@ -5,7 +5,7 @@ RSpec.describe "As a logged in user" do
     it "shows me all the machines and their information" do
       User.destroy_all
       user = User.create(name: "Test Tester", email: "email@example.com", password: "password", role: "admin", job_title: "manager")
-      allow_any_instance_of(ApplicationController).to recieve(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       l1 = Location.create(name: "Arapahoe")
       l2 = Location.create(name: "Brighton")
 
