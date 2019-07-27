@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
       four_oh_four unless current_user.user?
     end
   end
+
+  def four_oh_four
+    render file: "#{Rails.root}/public/404.html", status: :not_found
+  end
 end
