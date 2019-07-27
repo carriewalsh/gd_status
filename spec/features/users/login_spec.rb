@@ -5,10 +5,9 @@ RSpec.describe "As a registered user", type: :feature do
     before :each do
       User.destroy_all
       @user = User.create(name: "Test Tester", email: "email@example.com", password: "password", role: "admin", job_title: "manager")
+      visit '/login'
     end
     it "logs me in" do
-      visit '/login'
-
       fill_in "email", with: "email@example.com"
       fill_in "password", with: "test"
       click_button "Log In"
@@ -20,8 +19,6 @@ RSpec.describe "As a registered user", type: :feature do
 
   describe "when I enter incorrect credentials" do
     it "flashes an error message" do
-      visit '/login'
-
       fill_in "email", with: "email@example.com"
       fill_in "password", with: "not_test"
       click_button "Log In"
