@@ -20,7 +20,11 @@
           <%= image_tag("red_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
             <h3>Status: <%= machine.status.capitalize %></h3>
-            <button type="button" class="rts machine-btn" name="button">Return to Service</button>
+            <%= form_for machine, controller: :machines, action: :update do |f| %>
+              <%= f.hidden_field :id, value: machine.id %>
+              <%= f.hidden_field :status, value: "standby" %>
+              <%= f.submit "Return to Service", method: :update, class:'rts machine-btn' %>
+            <% end %>
           </div>
         <% else %>
           <%= image_tag("grey_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
