@@ -27,7 +27,11 @@
           <div class="info-container">
             <h3>Status: <%= machine.status.capitalize %></h3>
             <button type="button" class="start-run machine-btn" name="button">Start Run</button>
-            <button type="button" class="oos machine-btn" name="button">Flag as Out of Service</button>
+            <%= form_for machine, controller: :machines, action: :update do |f| %>
+              <%= f.hidden_field :id, value: machine.id %>
+              <%= f.hidden_field :status, value: "out of service" %>
+              <%= f.submit "Flag as Out of Service", method: :update, class:'oos machine-btn' %>
+            <% end %>
           </div>
         <% end %>
       </div>

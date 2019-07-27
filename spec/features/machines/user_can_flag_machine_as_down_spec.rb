@@ -13,6 +13,8 @@ RSpec.describe "As a logged in user" do
 
       click_button "Flag as Out of Service"
       expect(current_path).to eq(dashboard_path)
+      visit '/dashboard'
+      
       expect(page).to have_content("Status: Out of service")
       expect(page).to_not have_content("Status: Standby")
       expect(page).to_not have_content("Status: Running")
