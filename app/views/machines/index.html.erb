@@ -4,6 +4,8 @@
     <h2 class="location-name"><%= location.name %></h2>
     <% location.machines.each do |machine| %>
       <div class="machine-card">
+
+
         <% if machine.status == "running" %>
           <%= image_tag("green_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
@@ -20,6 +22,9 @@
               <%= f.submit "End Run", method: :update, class:'end-run machine-btn' %>
             <% end %>
           </div>
+
+
+
         <% elsif machine.status == "out of service" %>
           <%= image_tag("red_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
@@ -30,11 +35,14 @@
               <%= f.submit "Return to Service", method: :update, class:'rts machine-btn' %>
             <% end %>
           </div>
+
+
+
         <% else %>
           <%= image_tag("grey_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
             <h3>Status: <%= machine.status.capitalize %></h3>
-            <button type="button" class="start-run machine-btn" name="button">Start Run</button>
+            <button type="button" class="start-run machine-btn" name="button" id="machine-<%= machine.id %>">Start Run</button>
             <%= form_for machine, controller: :machines, action: :update do |f| %>
               <%= f.hidden_field :id, value: machine.id %>
               <%= f.hidden_field :status, value: "out of service" %>
@@ -43,6 +51,37 @@
           </div>
         <% end %>
       </div>
+
+
+
+      <div class="modal-start-run" id="modal-<%= machine.id %>">
+        <h5>Start run for <%= location.name %> - <%= machine.category %></h5>
+        <%= form_for machine, controller: :machines, action: :update do |f| %>
+        <%= f.hidden_field :id, value: machine.id %>
+        <%= f.hidden_field :status, value: "running" %>
+        <div class="year-round">
+          <h4>Year Round:</h4>
+
+          <% if machine.category == 'can' %>
+            <%= "can sizes" %>
+          <% elsif machine.category == 'bottle' %>
+            <%= "bottle sizes" %>
+          <% end %>
+
+        </div>
+        <%= f.submit "Begin Run", method: :update, class:'modal-btn' %>
+        <% end %>
+        <button type="button" name="button" class="cancel nav-btn">cancel</button>
+      </div>
+      <script type="text/javascript">
+        $('#machine-<%= machine.id %>').on('click', function(event) {
+          $('#modal-<%= machine.id %>').css('display','block');
+        });
+
+        $('.cancel').on('click', function(event) {
+          $('#modal-<%= machine.id %>').css('display','none');
+        });
+      </script>
     <% end %>
   </div>
   <% end %>

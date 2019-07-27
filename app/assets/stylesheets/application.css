@@ -117,6 +117,28 @@ nav {
   color: #38761d;
 }
 
+
+.modal-start-run {
+  background-color: rgba(0,0,0,0.4);
+  display: none;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  position: fixed;
+  z-index: 20;
+}
+
+.modal-content {
+
+}
+
+
+.modal-btn {
+  
+}
+
 .machine-btn {
   border: none;
   font-size: 20px;
