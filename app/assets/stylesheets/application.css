@@ -35,10 +35,17 @@ nav {
   width: 200px;
 }
 
-.current-beer {
-  
+.current-beer-container {
+  display: flex;
 }
 
+.current-beer {
+  width: 100px;
+}
+
+.current-size {
+  height: 100px;
+}
 
 .oos {
   color: #cc0000;
