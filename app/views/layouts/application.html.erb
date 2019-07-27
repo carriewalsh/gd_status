@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <nav>
+      <h3><%= Date.today.strftime("%A - %B %d, %Y") %></h3>
+      <img src="https://greatdivide.com/wp-content/uploads/2015/09/Great-Divide-Logo-Main-Rectangle-Two-Color-150px.png" alt="great divide logo" class="gd-logo">
+      <button type="button" name="button" class="nav-btn">Log Out</button>
+    </nav>
     <%= yield %>
   </body>
 </html>

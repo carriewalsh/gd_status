@@ -1,11 +1,34 @@
 body {
   font-family: 'Lato', sans-serif;
   background: #000911;
-  color: #FFF;
+  color: #FDF8DE;
 }
 
 nav {
+  display: flex;
+  height: 52px;
+  width: 100%;
+  justify-content: space-between;
+}
 
+.gd-logo {
+  height: 60px;
+}
+
+.nav-btn {
+  color: #17222a;
+  background: #FDF8DE;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  padding: 0px 20px;
+  margin: 5px;
+  margin-left: 98px;
+}
+
+.nav-btn:hover {
+  color: #FDF8DE;
+  background: #ee3123;
 }
 
 .dashboard-container {
@@ -18,8 +41,9 @@ nav {
 .location-card {
   display: flex;
   flex-direction: column;
-  width: 47%;
+  width: 47vw;
   background: #17222a;
+  margin: 10px;
   border-radius: 20px;
 }
 
@@ -48,6 +72,7 @@ nav {
 
 .status-line {
   margin: 2px;
+  margin-bottom: 10px;
 }
 
 .machine-logo {
@@ -58,6 +83,7 @@ nav {
 
 .current-beer-container {
   display: flex;
+  margin-bottom: 10px;
 }
 
 .current-beer {
@@ -69,8 +95,12 @@ nav {
 }
 
 .oos {
-  color: #cc0000;
+  color: #000;
   background-color: #ea9999;
+}
+
+.oos:hover {
+  color: #ff0000;
 }
 
 .end-run {
@@ -79,8 +109,12 @@ nav {
 }
 
 .start-run {
-  color: #38761d;
+  color: #000;
   background: #b6d7a8;
+}
+
+.start-run:hover {
+  color: #38761d;
 }
 
 .machine-btn {
@@ -89,9 +123,11 @@ nav {
   font-family: 'Lato', sans-serif;
   cursor: pointer;
   width: 225px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   margin: 5px;
 }
 
 .machine-btn:hover {
-  font-size: 22px;
+  transform: scale(1.05)
 }

@@ -5,7 +5,7 @@
     <% location.machines.each do |machine| %>
       <div class="machine-card">
         <% if machine.status == "running" %>
-          <%= image_tag("green_#{machine.category}.jpg", class:"machine-logo") %>
+          <%= image_tag("green_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
             <h3 class="status-line">Status: <%= machine.status.capitalize %> <%= machine.current_beer %></h3>
             <div class="current-beer-container">
@@ -15,16 +15,15 @@
               <% end %>
             </div>
             <button type="button" class="end-run machine-btn" name="button">End Run</button>
-            <button type="button" class="oos machine-btn" name="button">Flag as Out of Service</button>
           </div>
         <% elsif machine.status == "out of service" %>
-          <%= image_tag("red_#{machine.category}.jpg", class:"machine-logo") %>
+          <%= image_tag("red_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
             <h3>Status: <%= machine.status.capitalize %></h3>
             <button type="button" class="rts machine-btn" name="button">Return to Service</button>
           </div>
         <% else %>
-          <%= image_tag("grey_#{machine.category}.jpg", class:"machine-logo") %>
+          <%= image_tag("grey_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
             <h3>Status: <%= machine.status.capitalize %></h3>
             <button type="button" class="start-run machine-btn" name="button">Start Run</button>
