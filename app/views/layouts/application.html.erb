@@ -20,7 +20,7 @@
       <% end %>
       <img src="https://greatdivide.com/wp-content/uploads/2015/09/Great-Divide-Logo-Main-Rectangle-Two-Color-150px.png" alt="great divide logo" class="gd-logo">
       <% if current_user %>
-        <button type="button" name="button" class="nav-btn">Log Out</button>
+        <%= link_to "Log Out", logout_path, class:"nav-btn" %>
       <% else %>
         <p></p>
       <% end %>

@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: user_params[:email])
     if user && user.authenticate(user_params[:password])
-      binding.pry
       session[:user_id] = user.id
       flash[:success] = "Successfully logged in"
       redirect_to dashboard_path
@@ -13,6 +12,12 @@ class SessionsController < ApplicationController
       flash[:error] = "Incorrect email and/or password"
       redirect_to welcome_path
     end
+  end
+
+  def destroy
+    session.clear
+    flash[:success] = "Successfully logged out"
+    redirect_to welcome_path
   end
 
   private
