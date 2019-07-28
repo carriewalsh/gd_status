@@ -29,6 +29,8 @@
           <%= image_tag("red_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
             <h3>Status: <%= machine.status.capitalize %></h3>
+            <br>
+            <br>
             <%= form_for machine, controller: :machines, action: :update do |f| %>
               <%= f.hidden_field :id, value: machine.id %>
               <%= f.hidden_field :status, value: "standby" %>
@@ -55,23 +57,93 @@
 
 
       <div class="modal-start-run" id="modal-<%= machine.id %>">
-        <h5>Start run for <%= location.name %> - <%= machine.category %></h5>
-        <%= form_for machine, controller: :machines, action: :update do |f| %>
-        <%= f.hidden_field :id, value: machine.id %>
-        <%= f.hidden_field :status, value: "running" %>
-        <div class="year-round">
-          <h4>Year Round:</h4>
+        <div class="modal-content">
+          <h3 class="modal-title">Start run for <%= location.name %> - <%= machine.category.capitalize %> Line</h3>
+          <%= form_for machine, controller: :machines, action: :update do |f| %>
+          <%= f.hidden_field :id, value: machine.id %>
+          <%= f.hidden_field :status, value: "running" %>
+          <div class="radio-buttons">
+            <div class="year-round">
+              <h4>Year Round:</h4>
+              <% @year_round.each do |beer| %>
+                <label class="radio-line">
+                  <%= f.radio_button :beer_id, "#{beer.name}" %>
+                  <%= image_tag("#{beer.icon}",class:'small-icon') %>
+                  <%= beer.name.titleize %>
+                </label>
+              <% end %>
+            </div>
+            <div class="other-beers-1">
+              <h4>Seasonal:</h4>
+              <% @seasonal.each do |beer| %>
+                <label class="radio-line">
+                  <%= f.radio_button :beer_id, "#{beer.name}" %>
+                  <%= image_tag("#{beer.icon}",class:'small-icon') %>
+                  <%= beer.name.titleize %>
+                </label>
+              <% end %>
 
-          <% if machine.category == 'can' %>
-            <%= "can sizes" %>
-          <% elsif machine.category == 'bottle' %>
-            <%= "bottle sizes" %>
+              <h4>Tank Farm:</h4>
+              <% @tank_farm.each do |beer| %>
+                <label class="radio-line">
+                  <%= f.radio_button :beer_id, "#{beer.name}" %>
+                  <%= image_tag("#{beer.icon}",class:'small-icon') %>
+                  <%= beer.name.titleize %>
+                </label>
+              <% end %>
+            </div>
+            <div class="other-beers-2">
+
+              <h4>Yeti:</h4>
+              <% @yeti.each do |beer| %>
+                <label class="radio-line">
+                  <%= f.radio_button :beer_id, "#{beer.name}" %>
+                  <%= image_tag("#{beer.icon}",class:'small-icon') %>
+                  <%= beer.name.titleize %>
+                </label>
+              <% end %>
+
+              <h4>Wood Works:</h4>
+              <% @wood_werks.each do |beer| %>
+                <label class="radio-line">
+                  <%= f.radio_button :beer_id, "#{beer.name}" %>
+                  <%= image_tag("#{beer.icon}",class:'small-icon') %>
+                  <%= beer.name.titleize %>
+                </label>
+              <% end %>
+            </div>
+            <div class="size-column">
+              <% if machine.category == 'can' %>
+              <label for="size">
+                <%= f.radio_button :size, "12_can" %>
+                <%= "12 oz can" %>
+              </label>
+              <label for="size">
+                <%= f.radio_button :size, "16_can" %>
+                <%= "16 oz can" %>
+              </label>
+              <label for="size">
+                <%= f.radio_button :size, "19_can" %>
+                <%= "19.2 oz can" %>
+              </label>
+              <% elsif machine.category == 'bottle' %>
+              <label for="size">
+                <%= f.radio_button :size, "12_bottle" %>
+                <%= "12 oz bottle" %>
+              </label>
+              <label for="size">
+                <%= f.radio_button :size, "11_bottle" %>
+                <%= "22 oz bottle" %>
+              </label>
+              <% end %>
+              <%= f.submit "Begin Run", method: :update, class:'modal-btn green' %>
+              <button type="button" name="button" class="cancel modal-btn">Cancel</button>
+            </div>
+          </div>
+
+
           <% end %>
-
         </div>
-        <%= f.submit "Begin Run", method: :update, class:'modal-btn' %>
-        <% end %>
-        <button type="button" name="button" class="cancel nav-btn">cancel</button>
       </div>
       <script type="text/javascript">
         $('#machine-<%= machine.id %>').on('click', function(event) {
@@ -81,6 +153,11 @@
         $('.cancel').on('click', function(event) {
           $('#modal-<%= machine.id %>').css('display','none');
         });
+
+        // $(document).keydown(function(event) {
+        //   if (event.keyCode == 27) {
+        //     $('.modal-start-run').css('display','none');
+        //   }
       </script>
     <% end %>
   </div>

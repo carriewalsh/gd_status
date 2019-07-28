@@ -130,15 +130,73 @@ nav {
   z-index: 20;
 }
 
-.modal-content {
-
+.modal-title {
+  text-align: center;
+  color: #38761d;
+  margin: 15px;
+  font-size: 24px;
 }
 
+.modal-content {
+  color: #000911;
+  background: #FDF8DE;
+  height: 80%;
+  margin: 100px 100px;
+}
+
+.radio-buttons {
+  display: flex;
+}
+
+.radio-line {
+  display: flex;
+  align-items: center;
+}
+
+.year-round, .other-beers-1, .other-beers-2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 15px;
+  padding-right: 15px;
+}
+
+.year-round, .other-beers-2 {
+  border-right: 1px solid black;
+}
 
 .modal-btn {
-  
+  color: #FDF8DE;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  padding: 0px 20px;
+  margin: 5px;
+  padding: 20px;
 }
 
+.green {
+  background: #38761d;
+}
+
+.cancel {
+  background: #ee3123;
+}
+
+.modal-btn:hover {
+  background: #17222a;
+}
+
+.size-column {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.small-icon {
+  width: 30px;
+  height: auto;
+}
 .machine-btn {
   border: none;
   font-size: 20px;
