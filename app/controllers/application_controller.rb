@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     if current_user.nil?
       four_oh_four
     else
-      four_oh_four unless current_user.user?
+      # four_oh_four unless current_user.user?
     end
   end
 
