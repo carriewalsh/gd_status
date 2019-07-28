@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email_address: params[:email_address])
+    user = User.find_by(email: params[:email])
     # binding.pry
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
@@ -11,7 +11,13 @@ class SessionsController < ApplicationController
       redirect_to dashboard_path
     else
       flash[:error] = "Incorrect email and/or password"
-      render :new
+      redirect_to welcome_path
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email,:password)
   end
 end

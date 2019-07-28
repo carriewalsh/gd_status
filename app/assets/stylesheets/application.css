@@ -15,6 +15,14 @@ nav {
   margin-top: 0px;
 }
 
+.flash {
+  background: #ee3123;
+  color: #FDF8DE;
+  height: 25px;
+  text-align: center;
+  margin-top: 65px;
+}
+
 .gd-logo {
   height: 60px;
 }
