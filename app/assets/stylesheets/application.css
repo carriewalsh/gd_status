@@ -141,11 +141,14 @@ nav {
   color: #000911;
   background: #FDF8DE;
   height: 80%;
-  margin: 100px 100px;
+  width: 75%;
+  margin: 100px auto;
 }
 
 .radio-buttons {
   display: flex;
+  justify-content: space-around;
+  margin: 0px 40px;
 }
 
 .radio-line {
@@ -166,7 +169,7 @@ nav {
 }
 
 .modal-btn {
-  color: #FDF8DE;
+  color: #FFF;
   border: none;
   font-family: 'Lato', sans-serif;
   font-size: 18px;

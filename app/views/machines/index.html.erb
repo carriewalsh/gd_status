@@ -45,6 +45,8 @@
           <div class="info-container">
             <h3>Status: <%= machine.status.capitalize %></h3>
             <button type="button" class="start-run machine-btn" name="button" id="machine-<%= machine.id %>">Start Run</button>
+            <br>
+            <br>
             <%= form_for machine, controller: :machines, action: :update do |f| %>
               <%= f.hidden_field :id, value: machine.id %>
               <%= f.hidden_field :status, value: "out of service" %>
@@ -113,6 +115,9 @@
               <% end %>
             </div>
             <div class="size-column">
+              <br>
+              <br>
+              <br>
               <% if machine.category == 'can' %>
               <label for="size">
                 <%= f.radio_button :size, "12_can" %>
@@ -132,10 +137,15 @@
                 <%= "12 oz bottle" %>
               </label>
               <label for="size">
-                <%= f.radio_button :size, "11_bottle" %>
+                <%= f.radio_button :size, "22_bottle" %>
                 <%= "22 oz bottle" %>
               </label>
+              <% else %>
+                <br>
+                <br>
               <% end %>
+              <br>
+              <br>
               <%= f.submit "Begin Run", method: :update, class:'modal-btn green' %>
               <button type="button" name="button" class="cancel modal-btn">Cancel</button>
             </div>
