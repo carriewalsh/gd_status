@@ -13,9 +13,17 @@
 
   <body>
     <nav>
-      <h3><%= Date.today.strftime("%A - %B %d, %Y") %></h3>
+      <% if current_user %>
+        <h3><%= Date.today.strftime("%A - %B %d, %Y") %></h3>
+      <% else %>
+        <p></p>
+      <% end %>
       <img src="https://greatdivide.com/wp-content/uploads/2015/09/Great-Divide-Logo-Main-Rectangle-Two-Color-150px.png" alt="great divide logo" class="gd-logo">
-      <button type="button" name="button" class="nav-btn">Log Out</button>
+      <% if current_user %>
+        <button type="button" name="button" class="nav-btn">Log Out</button>
+      <% else %>
+        <p></p>
+      <% end %>
     </nav>
     <%= yield %>
   </body>
