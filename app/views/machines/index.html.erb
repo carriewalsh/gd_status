@@ -4,6 +4,8 @@
     <h2 class="location-name"><%= location.name %></h2>
     <% location.machines.each do |machine| %>
       <div class="machine-card">
+
+
         <% if machine.status == "running" %>
           <%= image_tag("green_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
@@ -14,23 +16,159 @@
                 <%= image_tag("#{machine.size}.jpg", class:"current-size") %>
               <% end %>
             </div>
-            <button type="button" class="end-run machine-btn" name="button">End Run</button>
+            <%= form_for machine, controller: :machines, action: :update do |f| %>
+              <%= f.hidden_field :id, value: machine.id %>
+              <%= f.hidden_field :status, value: "standby" %>
+              <%= f.submit "End Run", method: :update, class:'end-run machine-btn' %>
+            <% end %>
           </div>
+
+
+
         <% elsif machine.status == "out of service" %>
           <%= image_tag("red_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
             <h3>Status: <%= machine.status.capitalize %></h3>
-            <button type="button" class="rts machine-btn" name="button">Return to Service</button>
+            <br>
+            <br>
+            <%= form_for machine, controller: :machines, action: :update do |f| %>
+              <%= f.hidden_field :id, value: machine.id %>
+              <%= f.hidden_field :status, value: "standby" %>
+              <%= f.submit "Return to Service", method: :update, class:'rts machine-btn' %>
+            <% end %>
           </div>
+
+
+
         <% else %>
           <%= image_tag("grey_#{machine.category}.jpg", class:"machine-logo", alt:"#{machine.category} #{machine.status}") %>
           <div class="info-container">
             <h3>Status: <%= machine.status.capitalize %></h3>
-            <button type="button" class="start-run machine-btn" name="button">Start Run</button>
-            <button type="button" class="oos machine-btn" name="button">Flag as Out of Service</button>
+            <button type="button" class="start-run machine-btn" name="button" id="machine-<%= machine.id %>">Start Run</button>
+            <br>
+            <br>
+            <%= form_for machine, controller: :machines, action: :update do |f| %>
+              <%= f.hidden_field :id, value: machine.id %>
+              <%= f.hidden_field :status, value: "out of service" %>
+              <%= f.submit "Flag as Out of Service", method: :update, class:'oos machine-btn' %>
+            <% end %>
           </div>
         <% end %>
       </div>
+
+
+
+      <div class="modal-start-run" id="modal-<%= machine.id %>">
+        <div class="modal-content">
+          <h3 class="modal-title">Start run for <%= location.name %> - <%= machine.category.capitalize %> Line</h3>
+          <%= form_for machine, controller: :machines, action: :update do |f| %>
+          <%= f.hidden_field :id, value: machine.id %>
+          <%= f.hidden_field :status, value: "running" %>
+          <div class="radio-buttons">
+            <div class="year-round">
+              <h4>Year Round:</h4>
+              <% @year_round.each do |beer| %>
+                <label class="radio-line">
+                  <%= f.radio_button :beer_id, "#{beer.id}" %>
+                  <%= image_tag("#{beer.icon}",class:'small-icon') %>
+                  <%= beer.name.titleize %>
+                </label>
+              <% end %>
+            </div>
+            <div class="other-beers-1">
+              <h4>Seasonal:</h4>
+              <% @seasonal.each do |beer| %>
+                <label class="radio-line">
+                  <%= f.radio_button :beer_id, "#{beer.id}" %>
+                  <%= image_tag("#{beer.icon}",class:'small-icon') %>
+                  <%= beer.name.titleize %>
+                </label>
+              <% end %>
+
+              <h4>Tank Farm:</h4>
+              <% @tank_farm.each do |beer| %>
+                <label class="radio-line">
+                  <%= f.radio_button :beer_id, "#{beer.id}" %>
+                  <%= image_tag("#{beer.icon}",class:'small-icon') %>
+                  <%= beer.name.titleize %>
+                </label>
+              <% end %>
+            </div>
+            <div class="other-beers-2">
+
+              <h4>Yeti:</h4>
+              <% @yeti.each do |beer| %>
+                <label class="radio-line">
+                  <%= f.radio_button :beer_id, "#{beer.id}" %>
+                  <%= image_tag("#{beer.icon}",class:'small-icon') %>
+                  <%= beer.name.titleize %>
+                </label>
+              <% end %>
+
+              <h4>Wood Works:</h4>
+              <% @wood_werks.each do |beer| %>
+                <label class="radio-line">
+                  <%= f.radio_button :beer_id, "#{beer.id}" %>
+                  <%= image_tag("#{beer.icon}",class:'small-icon') %>
+                  <%= beer.name.titleize %>
+                </label>
+              <% end %>
+            </div>
+            <div class="size-column">
+              <br>
+              <br>
+              <br>
+              <% if machine.category == 'can' %>
+              <label for="size">
+                <%= f.radio_button :size, "12_can" %>
+                <%= "12 oz can" %>
+              </label>
+              <label for="size">
+                <%= f.radio_button :size, "16_can" %>
+                <%= "16 oz can" %>
+              </label>
+              <label for="size">
+                <%= f.radio_button :size, "19_can" %>
+                <%= "19.2 oz can" %>
+              </label>
+              <% elsif machine.category == 'bottle' %>
+              <label for="size">
+                <%= f.radio_button :size, "12_bottle" %>
+                <%= "12 oz bottle" %>
+              </label>
+              <label for="size">
+                <%= f.radio_button :size, "22_bottle" %>
+                <%= "22 oz bottle" %>
+              </label>
+              <% else %>
+                <br>
+                <br>
+              <% end %>
+              <br>
+              <br>
+              <%= f.submit "Begin Run", method: :update, class:'modal-btn green' %>
+              <button type="button" name="button" class="cancel modal-btn">Cancel</button>
+            </div>
+          </div>
+
+
+          <% end %>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $('#machine-<%= machine.id %>').on('click', function(event) {
+          $('#modal-<%= machine.id %>').css('display','block');
+        });
+
+        $('.cancel').on('click', function(event) {
+          $('#modal-<%= machine.id %>').css('display','none');
+        });
+
+        // $(document).keydown(function(event) {
+        //   if (event.keyCode == 27) {
+        //     $('.modal-start-run').css('display','none');
+        //   }
+      </script>
     <% end %>
   </div>
   <% end %>

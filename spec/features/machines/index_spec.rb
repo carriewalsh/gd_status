@@ -13,15 +13,15 @@ RSpec.describe "As a logged in user" do
       m2 = l1.machines.create(name: "bottle", status: 0, category: 1)
       m3 = l1.machines.create(name: "keg", status: 0, category: 2)
       m4 = l1.machines.create(name: "keg", status: 0, category: 2)
-      binding.pry
+
       visit dashboard_path
 
       expect(page).to have_content("Arapahoe")
       expect(page).to have_content("Brighton")
-      expect(page).to have_content("Can Line")
-      expect(page).to have_content("Keg Line")
-      expect(page).to have_content("Bottle Line")
-      # expect(page).to have_button("Start Run")
+      # expect(page).to have_content("Can Line")
+      # expect(page).to have_content("Keg Line")
+      # expect(page).to have_content("Bottle Line")
+      expect(page).to have_button("Start Run")
     end
   end
 end
