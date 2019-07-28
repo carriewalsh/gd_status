@@ -12,7 +12,11 @@ class MachinesController < ApplicationController
 
   def update
     machine = Machine.find(update_params[:id])
-    machine.update(update_params)
+    if params[:commit] == "Begin Run"
+      machine.update(run_params)
+    else
+      machine.update(update_params)
+    end
     redirect_to dashboard_path
   end
 
@@ -21,5 +25,9 @@ class MachinesController < ApplicationController
 
     def update_params
       params.require(:machine).permit(:id, :status)
+    end
+
+    def run_params
+      params.require(:machine).permit(:id, :status, :beer_id, :size)
     end
 end

@@ -67,7 +67,7 @@
               <h4>Year Round:</h4>
               <% @year_round.each do |beer| %>
                 <label class="radio-line">
-                  <%= f.radio_button :beer_id, "#{beer.name}" %>
+                  <%= f.radio_button :beer_id, "#{beer.id}" %>
                   <%= image_tag("#{beer.icon}",class:'small-icon') %>
                   <%= beer.name.titleize %>
                 </label>
@@ -77,7 +77,7 @@
               <h4>Seasonal:</h4>
               <% @seasonal.each do |beer| %>
                 <label class="radio-line">
-                  <%= f.radio_button :beer_id, "#{beer.name}" %>
+                  <%= f.radio_button :beer_id, "#{beer.id}" %>
                   <%= image_tag("#{beer.icon}",class:'small-icon') %>
                   <%= beer.name.titleize %>
                 </label>
@@ -86,7 +86,7 @@
               <h4>Tank Farm:</h4>
               <% @tank_farm.each do |beer| %>
                 <label class="radio-line">
-                  <%= f.radio_button :beer_id, "#{beer.name}" %>
+                  <%= f.radio_button :beer_id, "#{beer.id}" %>
                   <%= image_tag("#{beer.icon}",class:'small-icon') %>
                   <%= beer.name.titleize %>
                 </label>
@@ -97,7 +97,7 @@
               <h4>Yeti:</h4>
               <% @yeti.each do |beer| %>
                 <label class="radio-line">
-                  <%= f.radio_button :beer_id, "#{beer.name}" %>
+                  <%= f.radio_button :beer_id, "#{beer.id}" %>
                   <%= image_tag("#{beer.icon}",class:'small-icon') %>
                   <%= beer.name.titleize %>
                 </label>
@@ -106,7 +106,7 @@
               <h4>Wood Works:</h4>
               <% @wood_werks.each do |beer| %>
                 <label class="radio-line">
-                  <%= f.radio_button :beer_id, "#{beer.name}" %>
+                  <%= f.radio_button :beer_id, "#{beer.id}" %>
                   <%= image_tag("#{beer.icon}",class:'small-icon') %>
                   <%= beer.name.titleize %>
                 </label>
